@@ -1,0 +1,67 @@
+﻿
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+for details on configuring this project to bundle and minify static web assets. */
+body {
+	font-size: 15px;
+}
+
+
+#addressBookHeading {
+	padding-top: 24px;
+	padding-bottom: 24px;
+	padding-left: 20px;
+	background-color: #3399cc;
+}
+
+#addressBookHeading h1{
+	font-size: 50px;
+	color: white;
+	font-weight: lighter;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+/* NavBar Edit */
+.navbar-edit {
+	border: none;
+	border-radius: 0px;
+	min-height: 46px;
+	background-color: black;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 28px !important;
+}
+	.navbar-edit :before{
+		content: "";
+	}
+
+	.navbar-edit a {
+		font-weight: 700;
+		font-size: 15px;
+		color: white;
+		padding-top: 14px !important;
+		padding-bottom: 12px !important;
+	}
+
+.navbar-edit a:hover{
+	background-color: white;
+	color: black;
+}
+
+.nav{
+	margin: 0 !important;
+}
+/* QR code generator */
+#qrCode {
+	margin: 15px;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+	
+}
