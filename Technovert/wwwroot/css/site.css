@@ -32,21 +32,23 @@ body {
 	border-radius: 0px;
 	min-height: 46px;
 	background-color: black;
-	display: flex;
-	justify-content: space-between;
 	margin-bottom: 28px !important;
 }
-	.navbar-edit :before{
-		content: "";
-	}
+.navbar-edit :before{
+	content: "";
+}
+.navbar-ul :after{
+	content: "";
+}
 
-	.navbar-edit a {
-		font-weight: 700;
-		font-size: 15px;
-		color: white;
-		padding-top: 14px !important;
-		padding-bottom: 12px !important;
-	}
+
+.navbar-edit a {
+	font-weight: 700;
+	font-size: 15px;
+	color: white;
+	padding-top: 14px !important;
+	padding-bottom: 12px !important;
+}
 
 .navbar-edit a:hover{
 	background-color: white;
