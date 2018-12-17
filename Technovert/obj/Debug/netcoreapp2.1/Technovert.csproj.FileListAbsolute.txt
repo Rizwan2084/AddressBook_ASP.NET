@@ -14,8 +14,6 @@ C:\Users\rizwan.b\source\repos\Technovert\Technovert\obj\Debug\netcoreapp2.1\Tec
 C:\Users\rizwan.b\source\repos\Technovert\Technovert\obj\Debug\netcoreapp2.1\Technovert.TagHelpers.input.cache
 C:\Users\rizwan.b\source\repos\Technovert\Technovert\obj\Debug\netcoreapp2.1\Technovert.TagHelpers.output.cache
 C:\Users\rizwan.b\source\repos\Technovert\Technovert\obj\Debug\netcoreapp2.1\Technovert.RazorCoreGenerate.cache
-C:\Users\rizwan.b\source\repos\Technovert\Technovert\obj\Debug\netcoreapp2.1\Razor\Views\Home\About.g.cshtml.cs
-C:\Users\rizwan.b\source\repos\Technovert\Technovert\obj\Debug\netcoreapp2.1\Razor\Views\Home\Contact.g.cshtml.cs
 C:\Users\rizwan.b\source\repos\Technovert\Technovert\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
 C:\Users\rizwan.b\source\repos\Technovert\Technovert\obj\Debug\netcoreapp2.1\Razor\Views\Home\Privacy.g.cshtml.cs
 C:\Users\rizwan.b\source\repos\Technovert\Technovert\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.g.cshtml.cs
@@ -30,3 +28,4 @@ C:\Users\rizwan.b\source\repos\Technovert\Technovert\obj\Debug\netcoreapp2.1\Tec
 C:\Users\rizwan.b\source\repos\Technovert\Technovert\obj\Debug\netcoreapp2.1\Technovert.dll
 C:\Users\rizwan.b\source\repos\Technovert\Technovert\obj\Debug\netcoreapp2.1\Technovert.pdb
 C:\Users\rizwan.b\source\repos\Technovert\Technovert\obj\Debug\netcoreapp2.1\Technovert.csproj.CopyComplete
+C:\Users\rizwan.b\source\repos\Technovert\Technovert\obj\Debug\netcoreapp2.1\Razor\Views\Home\Add.g.cshtml.cs

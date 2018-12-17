@@ -36,7 +36,13 @@ namespace Technovert
 				options.Cookie.HttpOnly = true;
 			});
 
-			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1).AddSessionStateTempDataProvider(); 
+
+			services.AddSession(options =>
+			{
+				options.Cookie.Name = ".AdventureWorks.Session";
+				options.IdleTimeout = TimeSpan.FromSeconds(10);
+			});
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

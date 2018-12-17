@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Technovert.Models;
+using Microsoft.AspNetCore.Http;
+using System;
+using System.Threading.Tasks;
 
 namespace Technovert.Controllers
 {
@@ -15,16 +14,23 @@ namespace Technovert.Controllers
 			return View();
 		}
 
-		public IActionResult About()
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public async Task<IActionResult> Add([Bind("ID, Name, Email, Mobile, Landline, Website, Address")] ContactDetails contactDetails)
 		{
-			ViewData["Message"] = "Your application description page.";
-
-			return View();
+			if (ModelState.IsValid)
+			{
+				_context.Add(contactDetails);
+				await _context.SaveChangesAsync();
+				return RedirectToAction(nameof(Index));
+			}
+			return View(contactDetails);
 		}
 
-		public IActionResult Contact()
+		[HttpGet]
+		public IActionResult Add()
 		{
-			ViewData["Message"] = "Your contact page.";
+			ViewData["Message"] = "Your application description page.";
 
 			return View();
 		}
