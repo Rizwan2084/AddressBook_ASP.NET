@@ -1,0 +1,48 @@
+﻿
+@model ContactDetails
+@{
+	ViewData["Title"] = "About";
+}
+
+<h1> @ViewData["Message"]</h1>
+
+<div id="overlay">
+	<div class="popup-container">
+		<form asp-action="Add">
+			<div class="block">
+				<label asp-for="Name" class="control-label">Name</label>
+				<input type="text" id="name" asp-for="Name" placeholder="Your name.." class="form-control">
+				<span asp-validation-for="Name" class="text-danger"></span>
+			</div>
+			<div class="block">
+				<label asp-for="Email" class="control-label">Email</label>
+				<input type="text" id="email" asp-for="Email" placeholder="Your email.." class="form-control">
+				<span asp-validation-for="Name" class="text-danger"></span>
+			</div>
+			<div class="content">
+				<div class="list-content">
+					<label asp-for="Mobile" class="control-label">Mobile</label>
+					<input type="number" id="mobile" asp-for="Mobile" placeholder="Your mobile.." class="form-control">
+					<span asp-validation-for="Mobile" class="text-danger"></span>
+				</div>
+				<div class="list-content">
+					<label asp-for="Landline" class="control-label">Landline</label>
+					<input type="number" id="landline" asp-for="Landline" placeholder="Your landline.." class="form-control">
+					<span asp-validation-for="Landline" class="text-danger"></span>
+				</div>
+			</div>
+			<div class="block">
+				<label asp-for="Website" class="control-label">Website</label>
+				<input type="text" id="website" asp-for="Website" placeholder="Your website.." class="form-control">
+				<span asp-validation-for="Name" class="text-danger"></span>
+			</div>
+			<div class="block">
+				<label asp-for="Address" class="control-label">Address</label>
+				<textarea id="address" asp-for="Address" class="form-control"></textarea>
+				<span asp-validation-for="Name" class="text-danger"></span>
+			</div>
+			<input id="addContactButton" type="submit" value="Add">
+			<input id="cancel" type="button" value="Cancel" asp-controller="ContactDetails" asp-action="Index"/>
+		</form>
+	</div>
+</div>

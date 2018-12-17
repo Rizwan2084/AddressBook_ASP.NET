@@ -13,6 +13,7 @@ namespace Technovert.Models
 		[Required]
 		public string Name { get; set; }
 
+		[Required]
 		public string Email { get; set; }
 
 		[Required]
@@ -20,6 +21,7 @@ namespace Technovert.Models
 		[StringLength(10)]
 		public string Mobile { get; set; }
 
+		[Required]
 		[RegularExpression(@"^[0-9""'\s-]*$")]
 		[StringLength(10)]
 		public string Landline { get; set; }

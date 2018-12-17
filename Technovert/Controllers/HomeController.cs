@@ -16,12 +16,12 @@ namespace Technovert.Controllers
 
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public async Task<IActionResult> Add([Bind("ID, Name, Email, Mobile, Landline, Website, Address")] ContactDetails contactDetails)
+		public IActionResult Add([Bind("ID, Name, Email, Mobile, Landline, Website, Address")] ContactDetails contactDetails)
 		{
 			if (ModelState.IsValid)
 			{
-				_context.Add(contactDetails);
-				await _context.SaveChangesAsync();
+				//_context.Add(contactDetails);
+				//await _context.SaveChangesAsync();
 				return RedirectToAction(nameof(Index));
 			}
 			return View(contactDetails);

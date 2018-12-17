@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using Technovert.Models;
 
 namespace Technovert
 {
@@ -43,6 +45,9 @@ namespace Technovert
 				options.Cookie.Name = ".AdventureWorks.Session";
 				options.IdleTimeout = TimeSpan.FromSeconds(10);
 			});
+
+		    services.AddDbContext<TechnovertContext>(options =>
+		            options.UseSqlServer(Configuration.GetConnectionString("TechnovertContext")));
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
