@@ -44,10 +44,10 @@
 				</div>
 				<div class="icons">
 					<div id="edit">
-						<asp:Image id="image-1" alt="edit" runat="server" src="C:\Users\rizwan.b\source\repos\Technovert\Technovert\wwwroot\images\Edit-icon.png"><a href="@Url.Action("Edit", "Home", new { ID = Model.clickedContact.ID})">EDIT</a>
+						<img id="image-1" alt="edit" src="~/images/Edit-icon.png"><a href="@Url.Action("Edit", "Home", new { ID = Model.clickedContact.ID})">EDIT</a>
 					</div>
 					<div id="delete">
-						<asp:Image id="image-2" runat="server" src="C:\Users\rizwan.b\source\repos\Technovert\Technovert\wwwroot\images\delete1.png" alt="delete"><a href="@Url.Action("Delete", "Home", new { ID = Model.clickedContact.ID})">DELETE</a>
+						<img id="image-2" src="~/images/delete1.png" alt="delete"><a href="@Url.Action("Delete", "Home", new { ID = Model.clickedContact.ID})">DELETE</a>
 					</div>
 				</div>
 			</div>

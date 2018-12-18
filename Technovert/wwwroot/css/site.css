@@ -210,6 +210,10 @@ body {
 	margin-right: 36px;
 }
 
+#delete{
+	margin-top: 2px;
+}
+
 #contact-info .icons #image-1 {
 	width: 15px;
 	height: 15px;
