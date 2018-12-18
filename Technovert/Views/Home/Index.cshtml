@@ -3,19 +3,58 @@
 	ViewData["Title"] = "Home Page";
 }
 
-<h4>CONTACTS</h4>
 
 
 
+<div id="completeContainer">
+	<div id="contactsList">
+		@if (Model.Contacts.Count != 0)
+		{
+			<h4>CONTACTS</h4>
+		}
+		@foreach (var item in Model.Contacts)
+		{
+			<a id="@item.ID" class="side-contacts-list" href="@Url.Action("Index", "Home", new { ID = item.ID})">
+				<div class="contact">
+					<h1 class="pname">@item.Name</h1>
+					<p class="pemail">@item.Email</p>
+					<p class="pmobile">@item.Mobile</p>
+				</div>
+			</a>
+		}
+	</div>
 
-<div>
-	@foreach (var item in Model.Contacts)
+
+
+	@if ((bool)ViewData["isClicked"] == true)
 	{
-		<div class="contact" id="@Html.DisplayFor(modelItem => item.ID)">
-			<h1 class="pname">@Html.DisplayFor(modelItem => item.Name)</h1>
-			<p class="pemail">@Html.DisplayFor(modelItem => item.Email)</p>
-			<p class="pmobile">@Html.DisplayFor(modelItem => item.Mobile)</p>
+		<div id="contact-info" runat ="server">
+			<div class="contact-container">
+				<div class="display-contact">
+					<h1 id="display-name"> @Model.clickedContact.Name</h1>
+					<p id="display-email">Email: @Model.clickedContact.Email</p> <br />
+					<div>
+						<p id="display-phone">Mobile: @Model.clickedContact.Mobile</p>
+						<p id="display-landline">Landline: @Model.clickedContact.Landline</p>
+					</div>
+					<br />
+					<p id="display-website">Website: @Model.clickedContact.Website</p>
+					<br />
+					<p id="display-address">Address: @Model.clickedContact.Address</p>
+				</div>
+				<div class="icons">
+					<div id="edit">
+						<asp:Image id="image-1" alt="edit" runat="server" src="C:\Users\rizwan.b\source\repos\Technovert\Technovert\wwwroot\images\Edit-icon.png"><a href="@Url.Action("Edit", "Home", new { ID = Model.clickedContact.ID})">EDIT</a>
+					</div>
+					<div id="delete">
+						<asp:Image id="image-2" runat="server" src="C:\Users\rizwan.b\source\repos\Technovert\Technovert\wwwroot\images\delete1.png" alt="delete"><a href="@Url.Action("Delete", "Home", new { ID = Model.clickedContact.ID})">DELETE</a>
+					</div>
+				</div>
+			</div>
 		</div>
 	}
+
 </div>
+
+
 

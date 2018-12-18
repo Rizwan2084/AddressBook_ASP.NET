@@ -8,5 +8,6 @@ namespace Technovert.Models
 	public class ContactList
 	{
 		public List<ContactDetails> Contacts;
+		public ContactDetails clickedContact;
 	}
 }

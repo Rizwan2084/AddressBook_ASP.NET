@@ -7,8 +7,10 @@
 
 <div id="overlay">
 	<div class="popup-container">
-		<form asp-action="Add">
+		<form asp-action="Edit">
 			<div class="block">
+				<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+				<input type="hidden" asp-for="ID" />
 				<label asp-for="Name" class="control-label">Name</label>
 				<input type="text" id="name" asp-for="Name" placeholder="Your name.." class="form-control">
 				<span asp-validation-for="Name" class="text-danger"></span>
@@ -40,7 +42,7 @@
 				<textarea id="address" asp-for="Address" class="form-control"></textarea>
 				<span asp-validation-for="Address" class="text-danger"></span>
 			</div>
-			<input id="addContactButton" type="submit" value="Add">
+			<input id="EditContactButton" type="submit" value="Save" />
 		</form>
 	</div>
 </div>

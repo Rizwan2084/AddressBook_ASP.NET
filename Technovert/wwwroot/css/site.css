@@ -136,18 +136,13 @@ body {
 	border: 1px solid grey;
 	padding: 10px;
 }
+
+.contact :hover{
+	text-decoration: none !important;
+}
 .contact :not(:first-of-type){
 	border-top: 0;
 }
-
-.contact :hover {
-	background-color: lightblue;
-}
-
-.contact :active {
-	background-color: lightblue;
-}
-
 .contact h1 {
 	margin-top: 0;
 	margin-bottom: 6px;
@@ -158,6 +153,87 @@ body {
 	margin: 0;
 }
 
+#contactsList a:hover{
+	text-decoration: none;
+}
+
+.side-contacts-list h1, p{
+	text-decoration: none;
+	color: black;
+}
+
+
+.pname{
+	font-size: 34px;
+}
+#contactsList{
+	width: 360px;
+}
+
+#completeContainer{
+	display: inline-flex;
+}
+
+#contact-info {
+	margin-left: 194px;
+	font-size: 15px;
+	color: black;
+	font-family: calibri;
+}
+
+#contact-info .contact-container {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+#contact-info .display-contact {
+	width: 300px;
+}
+
+#contact-info .display-contact p {
+	margin-bottom: 10px;
+}
+
+#contact-info .display-contact div p {
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+#contact-info .icons {
+	display: inline-flex;
+	margin-top: 24px
+}
+
+#edit{
+	margin-top: 5px;
+	margin-right: 36px;
+}
+
+#contact-info .icons #image-1 {
+	width: 15px;
+	height: 15px;
+}
+
+#contact-info .icons #image-2 {
+	vertical-align: sub;
+}
+
+#contact-info .icons img {
+	margin-right: 5px;
+}
+
+#contact-info .icons span {
+	margin-right: 10px;
+}
+
+.div-not-visible{
+	display: none;
+}
+
+.div-visible{
+	display: block;
+}
 
 /* Hide/rearrange for smaller screens */					
 @media screen and (max-width: 767px) {
