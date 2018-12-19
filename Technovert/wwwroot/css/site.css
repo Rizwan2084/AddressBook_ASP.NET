@@ -24,6 +24,7 @@ body {
 .body-content {
 	padding-left: 15px;
 	padding-right: 15px;
+	
 }
 
 /* NavBar Edit */
@@ -41,6 +42,11 @@ body {
 	content: "";
 }
 
+.top-navbar img {
+	float: right;
+	margin-right: 20px;
+	margin-top: 14px;
+}
 
 .navbar-edit a {
 	font-weight: 700;
@@ -62,10 +68,9 @@ body {
 .popup-container {
 	top: 0;
 	left: 440px;
-	position: relative;
 	border-radius: 5px;
 	padding: 20px;
-	margin: 0 40px;
+	margin: 0 auto;
 	border: 1px solid gray;
 	box-shadow: 0 0 10px 5px #333;
 	background-color: white;
@@ -149,26 +154,34 @@ body {
 	font-weight: lighter;
 }
 
-.contact p{
+.contact p {
 	margin: 0;
+	color: #454545;
 }
 
 #contactsList a:hover{
 	text-decoration: none;
 }
 
-.side-contacts-list h1, p{
+
+
+.side-contacts-list h1, p {
 	text-decoration: none;
 	color: black;
 }
 
-
-.pname{
+.pname {
 	font-size: 34px;
+	color: #454545 !important;
 }
-#contactsList{
+#contactsList {
 	width: 360px;
 }
+
+#contactsList :hover {
+	background-color: #cee7f2;
+}
+
 
 #completeContainer{
 	display: inline-flex;
@@ -205,12 +218,19 @@ body {
 	margin-top: 24px
 }
 
-#edit{
+#edit {
 	margin-top: 5px;
 	margin-right: 36px;
+	margin-left: 8px;
+}
+#edit a {
+	color: #454545;
+}
+#delete a {
+	color: #454545;
 }
 
-#delete{
+#delete {
 	margin-top: 2px;
 }
 
