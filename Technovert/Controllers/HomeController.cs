@@ -1,10 +1,9 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.CodeAnalysis;
-using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using Technovert.Models;
 
 
@@ -12,45 +11,59 @@ namespace Technovert.Controllers
 {
 	public class HomeController : Controller
 	{
-		private readonly TechnovertContext _context;
+		private readonly ISession session;
 
-		public HomeController(TechnovertContext context)
+		public HomeController(IHttpContextAccessor httpContextAccessor)
 		{
-			_context = context;
+			this.session = httpContextAccessor.HttpContext.Session;
 		}
 
-		public async Task<IActionResult> Index(int? ID)
+		public IActionResult Index(int? ID)
 		{
-
-			var contacts = from m in _context.ContactDetails
-						   select m;
-
+			var allContacts = GetListOfContacts();
 			var clickedContact = new ContactDetails();
+
 			if (ID.HasValue)
 			{
-				clickedContact = contacts.Where(s => s.ID == ID).FirstOrDefault();
+				clickedContact = allContacts.Where(s => s.ID == ID).FirstOrDefault();
 				ViewData["isClicked"] = true;
 			}
 			else
 				ViewData["isClicked"] = false;
 
 			var contactsList = new ContactList();
-			contactsList.Contacts = await contacts.ToListAsync();
+			contactsList.Contacts = allContacts;
 			contactsList.clickedContact = clickedContact;
 			return View(contactsList);
 		}
 
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public async Task<IActionResult> Add([Bind("ID, Name, Email, Mobile, Landline, Website, Address")] ContactDetails contactDetails)
+		public IActionResult Add(ContactDetails contactDetails)
 		{
+
 			if (ModelState.IsValid)
 			{
-				_context.Add(contactDetails);
-				await _context.SaveChangesAsync();
-				return RedirectToAction(nameof(Index));
+				var existingItemsJsonData = session.GetString("contacts");
+				List<ContactDetails> contacts = new List<ContactDetails>();
+				if (existingItemsJsonData != null)
+				{
+					contacts = JsonConvert.DeserializeObject<List<ContactDetails>>(existingItemsJsonData);
+				}
+				if (contacts.Count == 0)
+					contactDetails.ID = 1;
+				else
+					contactDetails.ID = contacts[contacts.Count - 1].ID + 1;
+				contacts.Add(contactDetails);
+				session.SetString("contacts", JsonConvert.SerializeObject(contacts));
+				return RedirectToAction("Index");
 			}
-			return View(contactDetails);
+			else
+			{
+				return View(contactDetails);
+
+			}
+
 		}
 
 		[HttpGet]
@@ -59,59 +72,39 @@ namespace Technovert.Controllers
 			return View();
 		}
 
-		public async Task<IActionResult> Edit(int? id)
+		public IActionResult Edit(int? id)
 		{
-			if (id == null)
-			{
-				return NotFound();
-			}
 
-			var contactDetails = await _context.ContactDetails.FindAsync(id);
-			if (contactDetails == null)
-			{
-				return NotFound();
-			}
-			return View(contactDetails);
+			ContactDetails contact = GetListOfContacts().Find(x => x.ID == id);
+			return View("Edit", contact);
+
 		}
 
 		[HttpPost]
-		public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Email,Mobile,Landline,Website,Address")] ContactDetails contactDetails)
+		public IActionResult Edit(int id, ContactDetails contactDetails)
 		{
-			if (id != contactDetails.ID)
-			{
-				return NotFound();
-			}
+			var contacts = GetListOfContacts();
+			ContactDetails editContact = contacts.Find(x => x.ID == contactDetails.ID);
+			editContact.Name = contactDetails.Name;
+			editContact.Mobile = contactDetails.Mobile;
+			editContact.Email = contactDetails.Email;
+			editContact.Landline = contactDetails.Landline;
+			editContact.Website = contactDetails.Website;
+			session.SetString("contacts", JsonConvert.SerializeObject(contacts));
+			ViewBag.message = "your contact has been edited successfully";
+			return RedirectToAction("Index");
 
-			if (ModelState.IsValid)
-			{
-				try
-				{
-					_context.Update(contactDetails);
-					await _context.SaveChangesAsync();
-				}
-				catch (DbUpdateConcurrencyException)
-				{
-					if (!ContactDetailsExists(contactDetails.ID))
-					{
-						return NotFound();
-					}
-					else
-					{
-						throw;
-					}
-				}
-				return RedirectToAction(nameof(Index));
-			}
-			return View(contactDetails);
 		}
 
-		public async Task<IActionResult> Delete(int id)
+		public IActionResult Delete(int id)
 		{
-			var contactDetails = await _context.ContactDetails.FindAsync(id);
-			_context.ContactDetails.Remove(contactDetails);
-			await _context.SaveChangesAsync();
-			return RedirectToAction(nameof(Index));
-		}
+
+			var allContacts = GetListOfContacts();
+			ContactDetails contact = allContacts.Find(x => x.ID == id);
+			allContacts.Remove(contact);
+			session.SetString("contacts", JsonConvert.SerializeObject(allContacts));
+			return RedirectToAction("Index");
+	 	}
 
 
 
@@ -126,9 +119,16 @@ namespace Technovert.Controllers
 			return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
 		}
 
-		private bool ContactDetailsExists(int id)
+
+		[NonAction]
+		private List<ContactDetails> GetListOfContacts()
 		{
-			return _context.ContactDetails.Any(e => e.ID == id);
+			var contactsInSession = session.GetString("contacts");
+			if (contactsInSession != null)
+				return JsonConvert.DeserializeObject<List<ContactDetails>>(contactsInSession);
+			else
+				return null;
 		}
+
 	}
 }

@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Technovert.Models;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace Technovert
 {
@@ -31,21 +32,9 @@ namespace Technovert
 
 			services.AddDistributedMemoryCache();
 
-			services.AddSession(options =>
-			{
-				// Set a short timeout for easy testing.
-				options.IdleTimeout = TimeSpan.FromSeconds(10);
-				options.Cookie.HttpOnly = true;
-			});
-
+			services.AddSession(s => s.IdleTimeout = TimeSpan.FromMinutes(30));
+			services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1).AddSessionStateTempDataProvider(); 
-
-			services.AddSession(options =>
-			{
-				options.Cookie.Name = ".AdventureWorks.Session";
-				options.IdleTimeout = TimeSpan.FromSeconds(10);
-			});
-
 		    services.AddDbContext<TechnovertContext>(options =>
 		            options.UseSqlServer(Configuration.GetConnectionString("TechnovertContext")));
 		}

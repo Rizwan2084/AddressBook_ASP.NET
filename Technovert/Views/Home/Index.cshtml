@@ -8,27 +8,28 @@
 
 <div id="completeContainer">
 	<div id="contactsList">
-		@if (Model.Contacts.Count != 0)
+		<h4>CONTACTS</h4>
+		@if (Model.Contacts != null)
 		{
-			<h4>CONTACTS</h4>
+			@foreach (var item in Model.Contacts)
+			{
+				<a id="@item.ID" class="side-contacts-list" href="@Url.Action("Index", "Home", new { ID = item.ID})">
+					<div class="contact">
+						<h1 class="pname">@item.Name</h1>
+						<p>@item.Email</p>
+						<p>@item.Mobile</p>
+					</div>
+				</a>
+			}
 		}
-		@foreach (var item in Model.Contacts)
-		{
-			<a id="@item.ID" class="side-contacts-list" href="@Url.Action("Index", "Home", new { ID = item.ID})">
-				<div class="contact">
-					<h1 class="pname">@item.Name</h1>
-					<p class="pemail">@item.Email</p>
-					<p class="pmobile">@item.Mobile</p>
-				</div>
-			</a>
-		}
+
 	</div>
 
 
 
 	@if ((bool)ViewData["isClicked"] == true)
 	{
-		<div id="contact-info" runat ="server">
+		<div id="contact-info">
 			<div class="contact-container">
 				<div class="display-contact">
 					<h1 id="display-name"> @Model.clickedContact.Name</h1>
