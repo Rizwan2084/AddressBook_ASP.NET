@@ -25,6 +25,7 @@ body {
 	padding-left: 15px;
 	padding-right: 15px;
 	
+	
 }
 
 /* NavBar Edit */
@@ -102,6 +103,15 @@ body {
 	border: none;
 }
 
+.divContainingAddButton {
+	margin-left: 578px;
+}
+#addContactButton, #editContactButton {
+	background-color: #468c00;
+	color: white;
+	padding: 7px 28px;
+	border: none;
+}
 
 .content {
 	display: flex;
@@ -176,6 +186,8 @@ body {
 }
 #contactsList {
 	width: 360px;
+	margin-left: 18px;
+	float: left;
 }
 
 #contactsList :hover {
@@ -191,6 +203,7 @@ body {
 	margin-left: 194px;
 	font-size: 15px;
 	color: black;
+	float: left;
 	font-family: calibri;
 }
 

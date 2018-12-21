@@ -1,4 +1,21 @@
 ﻿<!DOCTYPE html>
+
+@using Microsoft.AspNetCore.Http
+@using Newtonsoft.Json
+@inject IHttpContextAccessor HttpContextAccessor
+
+
+
+
+@{
+	var allContactsInSession = HttpContextAccessor.HttpContext.Session.GetString("contacts");
+	List<ContactDetails> allContacts = null;
+	if (allContactsInSession != null)
+	{
+		allContacts = JsonConvert.DeserializeObject<List<ContactDetails>>(allContactsInSession);
+
+	}
+}
 <html>
 <head>
 	<meta charset="utf-8" />
@@ -28,7 +45,23 @@
 		<img src="~/images/blog-icon.png" alt="blog-icon" />
 	</nav>
 
-	
+	<div id="contactsList">
+		<h4>CONTACTS</h4>
+		@if (allContacts != null)
+		{
+			@foreach (var item in allContacts)
+			{
+				<a id="@item.ID" class="side-contacts-list" href="@Url.Action("Index", "Home", new { ID = item.ID})">
+					<div class="contact">
+						<h1 class="pname">@item.Name</h1>
+						<p>@item.Email</p>
+						<p>@item.Mobile</p>
+					</div>
+				</a>
+			}
+		}
+
+	</div>
 
 	<partial name="_CookieConsentPartial" />
 

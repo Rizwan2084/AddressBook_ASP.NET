@@ -31,10 +31,9 @@ namespace Technovert.Controllers
 			else
 				ViewData["isClicked"] = false;
 
-			var contactsList = new ContactList();
-			contactsList.Contacts = allContacts;
-			contactsList.clickedContact = clickedContact;
-			return View(contactsList);
+			
+			session.SetString("clickedContact", JsonConvert.SerializeObject(clickedContact));
+			return View();
 		}
 
 		[HttpPost]
@@ -76,7 +75,7 @@ namespace Technovert.Controllers
 		{
 
 			ContactDetails contact = GetListOfContacts().Find(x => x.ID == id);
-			return View("Edit", contact);
+			return View(contact);
 
 		}
 

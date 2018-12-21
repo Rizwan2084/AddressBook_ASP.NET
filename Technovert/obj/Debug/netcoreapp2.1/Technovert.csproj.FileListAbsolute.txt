@@ -28,10 +28,5 @@ C:\Users\rizwan.b\source\repos\Technovert\Technovert\obj\Debug\netcoreapp2.1\Tec
 C:\Users\rizwan.b\source\repos\Technovert\Technovert\obj\Debug\netcoreapp2.1\Technovert.pdb
 C:\Users\rizwan.b\source\repos\Technovert\Technovert\obj\Debug\netcoreapp2.1\Technovert.csproj.CopyComplete
 C:\Users\rizwan.b\source\repos\Technovert\Technovert\obj\Debug\netcoreapp2.1\Razor\Views\Home\Add.g.cshtml.cs
-C:\Users\rizwan.b\source\repos\Technovert\Technovert\obj\Debug\netcoreapp2.1\Razor\Views\ContactDetails\Delete.g.cshtml.cs
-C:\Users\rizwan.b\source\repos\Technovert\Technovert\obj\Debug\netcoreapp2.1\Razor\Views\ContactDetails\Details.g.cshtml.cs
-C:\Users\rizwan.b\source\repos\Technovert\Technovert\obj\Debug\netcoreapp2.1\Razor\Views\ContactDetails\Edit.g.cshtml.cs
-C:\Users\rizwan.b\source\repos\Technovert\Technovert\obj\Debug\netcoreapp2.1\Razor\Views\ContactDetails\Index.g.cshtml.cs
-C:\Users\rizwan.b\source\repos\Technovert\Technovert\obj\Debug\netcoreapp2.1\Razor\Views\ContactDetails\Add.g.cshtml.cs
 C:\Users\rizwan.b\source\repos\Technovert\Technovert\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
 C:\Users\rizwan.b\source\repos\Technovert\Technovert\obj\Debug\netcoreapp2.1\Razor\Views\Home\Edit.g.cshtml.cs

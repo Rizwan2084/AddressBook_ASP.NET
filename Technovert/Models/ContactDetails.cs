@@ -21,7 +21,7 @@ namespace Technovert.Models
 		[StringLength(10)]
 		public string Mobile { get; set; }
 
-		[Required]
+		
 		[RegularExpression(@"^[0-9""'\s-]*$")]
 		[StringLength(10)]
 		public string Landline { get; set; }

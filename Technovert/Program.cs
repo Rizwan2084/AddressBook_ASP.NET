@@ -22,7 +22,7 @@ namespace Technovert
 				{
 					var context = services.GetRequiredService<TechnovertContext>();
 					context.Database.Migrate();
-					SeedData.Initialize(services);
+					
 				}
 				catch (Exception ex)
 				{
