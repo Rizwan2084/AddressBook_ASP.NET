@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Technovert.Models
 {
-	public class ContactDetails
+	public sealed class ContactDetails
 	{
+
 		public int ID { get; set; }
 
 		[Required]

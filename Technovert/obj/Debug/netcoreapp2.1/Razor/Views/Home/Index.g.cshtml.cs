@@ -162,7 +162,7 @@ using Newtonsoft.Json;
             WriteLiteral("</p>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"icons\">\r\n\t\t\t\t\t<div id=\"edit\">\r\n\t\t\t\t\t\t");
             EndContext();
             BeginContext(1111, 58, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "298fc18a96d54c31a4f37cca5a475517", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "afe58526e1004a32927a5b43ff5b5cf6", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -192,7 +192,7 @@ WriteAttributeValue("", 1178, Url.Action("Edit", "Home", new { ID = clickedConta
             WriteLiteral(">EDIT</a>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div id=\"delete\">\r\n\t\t\t\t\t\t");
             EndContext();
             BeginContext(1291, 58, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "a9bc8017ea0441639d470ed9ef83a3fe", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "229c192244e7432fb88518923944fb11", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

@@ -21,18 +21,18 @@ namespace Technovert.Controllers
 		public IActionResult Index(int? ID)
 		{
 			var allContacts = GetListOfContacts();
-			var clickedContact = new ContactDetails();
 
 			if (ID.HasValue)
 			{
-				clickedContact = allContacts.Where(s => s.ID == ID).FirstOrDefault();
+				var clickedContact = allContacts.Where(s => s.ID == ID).FirstOrDefault();
+				session.SetString("clickedContact", JsonConvert.SerializeObject(clickedContact));
 				ViewData["isClicked"] = true;
 			}
 			else
 				ViewData["isClicked"] = false;
 
 			
-			session.SetString("clickedContact", JsonConvert.SerializeObject(clickedContact));
+			
 			return View();
 		}
 
@@ -43,11 +43,11 @@ namespace Technovert.Controllers
 
 			if (ModelState.IsValid)
 			{
-				var existingItemsJsonData = session.GetString("contacts");
+				var existingContactsInJSONFormat = session.GetString("contacts");
 				List<ContactDetails> contacts = new List<ContactDetails>();
-				if (existingItemsJsonData != null)
+				if (existingContactsInJSONFormat != null)
 				{
-					contacts = JsonConvert.DeserializeObject<List<ContactDetails>>(existingItemsJsonData);
+					contacts = JsonConvert.DeserializeObject<List<ContactDetails>>(existingContactsInJSONFormat);
 				}
 				if (contacts.Count == 0)
 					contactDetails.ID = 1;
